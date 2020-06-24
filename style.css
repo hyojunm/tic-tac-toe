@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Piedra&display=swap");
+
+:root {
+	--board-size: 400px;
+	--board-font-size: 75px;
+	--end-color: #d3d3d3;
+}
+
+body {
+	font-family: "Odibee Sans", cursive;
+	padding-bottom: 16px;
+	text-align: center;
+}
+
+#scoreboard {
+	display: flex;
+	justify-content: center;
+	width: var(--board-size);
+	margin: auto;
+	margin-bottom: 24px;
+	background-color: black;
+	color: white;
+	border: 10px double white;
+}
+
+#scoreboard > p {
+	width: 50%;
+	text-align: center;
+	font-size: 18px;
+}
+
+#board {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	width: var(--board-size);
+	height: var(--board-size);
+	margin: auto;
+}
+
+.square {
+	width: calc(var(--board-size) / 3);
+	height: calc(var(--board-size) / 3);
+	line-height: calc(var(--board-size) / 3);
+	cursor: pointer;
+	font-family: "Piedra", cursive;
+	font-size: var(--board-font-size);
+	text-align: center;
+}
+
+.end {
+	color: var(--end-color);
+	animation: fadeOut 1s linear 1 alternate;
+}
+
+#menu {
+	position: fixed;
+	top: 100px;
+	left: -5px;
+}
+
+#menu > button {
+	position: absolute;
+	background: none;
+	border: 2px solid black;
+	border-left: none;
+	width: 125px;
+	padding: 16px;
+	font-family: "Piedra", cursive;
+	cursor: pointer;
+}
+
+#menu > button:hover {
+	text-decoration: underline;
+	width: 150px;
+}
+
+.line-h {
+	position: absolute;
+	width: var(--board-size);
+	height: 8px;
+	border-radius: 8px;
+	background-color: black;
+	animation: drawHorizontal 2s ease-in-out 1;
+}
+
+.line-v {
+	position: absolute;
+	width: 8px;
+	height: var(--board-size);
+	border-radius: 8px;
+	background-color: black;
+	animation: drawVertical 2s ease-in-out 1;
+}
+
+@keyframes drawHorizontal {
+	from { width: 0; };
+	to { width: var(--board-size); }
+}
+
+@keyframes drawVertical {
+	from { height: 0; };
+	to { height: var(--board-size); }
+}
+
+@keyframes fadeOut {
+	from { color: black; }
+	to { color: var(--end-color); }
+}
+
+@media screen and (max-width: 500px) {
+	:root {
+		--board-size: 300px;
+		--board-font-size: 50px;
+	}
+
+	#scoreboard {
+		display: block;
+	}
+
+	#scoreboard > p {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#menu {
+		display: block;
+		position: static;
+		margin: auto;
+	}
+
+	#menu > button {
+		position: static;
+		width: calc(var(--board-size) / 2);
+		margin-bottom: 16px;
+		border-left: 2px solid black;
+	}
+
+	#menu > button:hover {
+		text-decoration: underline;
+		width: calc(var(--board-size) / 2);
+	}
+}

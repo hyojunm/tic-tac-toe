@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body>
+	<h1>Tic-Tac-Toe</h1>
+	<div id="menu">
+		<button style="top: 0px;" onclick="window.location.reload();">
+			New Game
+		</button>
+		<button style="top: 60px;" onclick="window.open('https://github.com/hyojunm/tic-tac-toe')">
+			GitHub
+		</button>
+	</div>
+
+	<div id="scoreboard">
+		<p id="status">Welcome to Tic-Tac-Toe!</p>
+		<p id="record">
+			Wins: <span id="wins">0</span> /
+			Ties: <span id="ties">0</span> /
+			Losses: <span id="losses">0</span>
+		</p>
+	</div>
+	
+	<div id="board">
+		<div style="top: calc(var(--board-size) * (1/3));" class="line-h"></div>
+		<div style="top: calc(var(--board-size) * (2/3));" class="line-h"></div>
+		<div style="left: calc(var(--board-size) * (1/3));" class="line-v"></div>
+		<div style="left: calc(var(--board-size) * (2/3));" class="line-v"></div>
+	</div>
+	<script src="tic-tac-toe.js"></script>
+</body>
+</html>
